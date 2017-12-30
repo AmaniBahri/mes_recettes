@@ -27,7 +27,7 @@
           <div class="form-group">
             <label for="imagePath">Image URL</label>
             <input
-              type="text"
+              type="url"
               id="imagePath"
               formControlName="imagePath"
               class="form-control"
@@ -43,6 +43,17 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
+              <div class="row">
+                  <div class="col-xs-12">
+                    <div class="form-group">
+                      <label for="ShortDesc">Courte Description</label>
+                      <textarea
+                        type="text"
+                        id="ShortDesc"
+                        class="form-control"
+                        formControlName="ShortDesc"
+                        rows="2"></textarea>
+                    </div>
             <label for="description">Description</label>
             <textarea
               type="text"
@@ -53,6 +64,52 @@
           </div>
         </div>
       </div>
+      
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label>personnes </label>
+            <input
+            type="number"
+            id="personnes"
+            formControlName="personnes"
+            class="form-control">
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label>Temps de préparation </label>
+            <input
+            type="text"
+            id="temps de préparation"
+            formControlName="temps de préparation"
+            class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label>Temps de cuisson </label>
+            <input
+            type="text"
+            id="temps de cuisson"
+            formControlName="temps de cuisson"
+            class="form-control">
+          </div>
+        </div>
+      </div>
+
+      
+
+
       <div class="row">
         <div class="col-xs-12" formArrayName="ingredients">
           <div
@@ -86,7 +143,9 @@
                 type="button"
                 class="btn btn-success"
                 (click)="onAddIngredient()">Add Ingredient</button>
+                
             </div>
+            
           </div>
         </div>
       </div>
