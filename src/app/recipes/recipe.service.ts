@@ -9,7 +9,8 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 export class RecipeService {
   recipesChanged = new Subject<Recipe[]>();
 
-  private recipes: Recipe[] = [
+  private recipes= new Array<Recipe>();
+  /* = [
     new Recipe(
       'Tasty Schnitzel',
       'A super-tasty AMANI ABI7A - just awesome!',
@@ -27,7 +28,7 @@ export class RecipeService {
         new Ingredient('Buns', 2),
         new Ingredient('Meat', 1)
       ])
-  ];
+  ];*/
 
   constructor(private slService: ShoppingListService) {}
 

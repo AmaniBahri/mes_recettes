@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from "../auth.service";
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -14,7 +15,7 @@ export class SigninComponent implements OnInit {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private authenticationService: AuthService) { }
+        private authenticationService: AuthService ) { }
 
     ngOnInit() {
         // reset login status
@@ -26,9 +27,9 @@ export class SigninComponent implements OnInit {
 
     login() {
         this.loading = true;
-        this.authenticationService.signinUser(this.model.username, this.model.password);
-      
-       // this.loading = false;
+       this.authenticationService.signinUser(this.model.username, this.model.password); // TO DO SAIF
+       
+       this.loading = false;
         
        
          

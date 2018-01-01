@@ -12,13 +12,15 @@ import { SigninComponent } from './auth/signin/signin.component';
 
 const appRoutes: Routes = [
  
-  { path: '', redirectTo: '/signin', pathMatch: 'full' },
+  
+  { path: '', component: RecipesComponent },
+ 
   { path: 'recipes', component: RecipesComponent, children: [
     { path: '', component: RecipeStartComponent },
-    { path: 'new', component: RecipeEditComponent, canActivate: [AuthGuard] },
-    { path: ':id', component: RecipeDetailComponent },
+     { path: ':id', component: RecipeDetailComponent },
     { path: ':id/edit', component: RecipeEditComponent , canActivate: [AuthGuard] },
   ] },
+  { path: 'app-recipe-edit', component: RecipeEditComponent, canActivate: [AuthGuard] },
   { path: 'shopping-list', component: ShoppingListComponent  },
   {path: 'signup', component: SignupComponent},
   { path: 'signin', component: SigninComponent },
