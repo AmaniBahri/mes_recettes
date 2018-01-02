@@ -1,9 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-
+import { AuthService } from '../../auth/auth.service';
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
+import { DataStorageService } from '../../shared/data-storage.service';
+
 
 @Component({
   selector: 'app-recipe-list',
@@ -12,14 +14,19 @@ import { RecipeService } from '../recipe.service';
 })
 export class RecipeListComponent implements OnInit, OnDestroy {
   recipes: Recipe[];
-  subscription: Subscription;
+  subscription: Subscription ;
+   
 
   constructor(private recipeService: RecipeService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute, private authService: AuthService ,private dataStorage :DataStorageService) {
   }
 
   ngOnInit() {
+
+
+ // if (this.authService.isAuthenticated() ) {this.dataStorage.getRecipes();}//TO DO SAIF
+
     this.subscription = this.recipeService.recipesChanged
       .subscribe(
         (recipes: Recipe[]) => {
@@ -27,10 +34,11 @@ export class RecipeListComponent implements OnInit, OnDestroy {
         }
       );
     this.recipes = this.recipeService.getRecipes();
+
   }
 
   onNewRecipe() {
-    this.router.navigate(['new'], {relativeTo: this.route});
+    this.router.navigate(['app-recipe-edit']);
   }
 
   ngOnDestroy() {

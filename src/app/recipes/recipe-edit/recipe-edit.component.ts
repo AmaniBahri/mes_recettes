@@ -68,6 +68,10 @@ export class RecipeEditComponent implements OnInit {
     let recipeName = '';
     let recipeImagePath = '';
     let recipeDescription = '';
+    let recipeShortDescription = '';
+    let recipepeople = 0;
+    let recipeCookingtime = 0;
+    let recipePreparationtime = 0;
     let recipeIngredients = new FormArray([]);
 
     if (this.editMode) {
@@ -75,6 +79,12 @@ export class RecipeEditComponent implements OnInit {
       recipeName = recipe.name;
       recipeImagePath = recipe.imagePath;
       recipeDescription = recipe.description;
+      recipeShortDescription=recipe.ShortDesc
+      recipepeople =recipe.people;
+      recipeCookingtime = recipe.Cookingtime;
+      recipePreparationtime =recipe.Preparationtime;
+
+
       if (recipe['ingredients']) {
         for (let ingredient of recipe.ingredients) {
           recipeIngredients.push(
@@ -89,11 +99,15 @@ export class RecipeEditComponent implements OnInit {
         }
       }
     }
-
+  
     this.recipeForm = new FormGroup({
       'name': new FormControl(recipeName, Validators.required),
       'imagePath': new FormControl(recipeImagePath, Validators.required),
+      'ShortDesc': new FormControl(recipeShortDescription, Validators.required),
       'description': new FormControl(recipeDescription, Validators.required),
+      'people': new FormControl(recipepeople, Validators.required),
+      'Preparationtime': new FormControl(recipeCookingtime, Validators.required),
+      'Cookingtime': new FormControl(recipePreparationtime, Validators.required),
       'ingredients': recipeIngredients
     });
   }
