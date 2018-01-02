@@ -32,6 +32,7 @@
                                     <label for="ShortDesc">Courte Description</label>
                                     <textarea type="text" id="ShortDesc" class="form-control" formControlName="ShortDesc" rows="2"></textarea>
                                 </div>
+
                                 <label for="description">Description</label>
                                 <textarea type="text" id="description" class="form-control" formControlName="description" rows="6"></textarea>
                             </div>
@@ -84,7 +85,6 @@
                             <button type="button" class="btn btn-danger" (click)="onDeleteIngredient(i)">X</button>
                         </div>
                     </div>
-                    <hr>
                     <div class="row">
                         <div class="col-xs-12">
                             <button type="button" class="btn btn-success" (click)="onAddIngredient()">Add Ingredient</button>
@@ -94,7 +94,7 @@
                     </div>
                 </div>
             </div>
-            <hr>
+            
             <div class="row">
                 <div class="col-xs-12">
                     <button type="submit" class="btn btn-success" [disabled]="!recipeForm.valid">Save</button>
